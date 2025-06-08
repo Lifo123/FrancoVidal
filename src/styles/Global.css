@@ -1,0 +1,30 @@
+@import "./Variables.css";
+@import "./Settings.css";
+
+.flifo-portal {
+    top: 50% !important;
+    left: 50% !important;
+}
+
+body {
+    background-color: rgb(var(--lb-bg));
+}
+
+main {
+    width: 70%;
+    max-width: 840px;
+}
+
+.dashboard {
+    width: 100%;
+}
+
+.icon-btn {
+    padding: .3rem;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.icon-btn:hover {
+    background-color: rgb(var(--border-color));
+}

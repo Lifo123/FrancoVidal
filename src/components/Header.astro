@@ -1,0 +1,22 @@
+---
+import HeaderRight from "./HeaderRight.tsx";
+---
+
+<header
+    class="f-row f-justify-between f-align-center px-3 w-70 br-8 sticky mx-auto"
+>
+    <span class="d-flex ml-1 strong"> Franco Vidal </span>
+    <ul class="f-row f-align-center g-2">
+        <HeaderRight client:only="react" />
+    </ul>
+</header>
+
+<style>
+    header {
+        height: 50px;
+        min-width: 330px;
+        max-width: 840px;
+        top: 25px;
+        border: 1px solid rgb(var(--border-color));
+    }
+</style>

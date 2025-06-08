@@ -1,0 +1,38 @@
+---
+import Header from "@Components/Header.astro";
+import Layout from "@Layouts/Layout.astro";
+
+interface Props {
+	title: string;
+	description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<script is:inline>
+	const globalUser = JSON.parse(localStorage.getItem("FV-User") || "{}");
+
+	if (!globalUser || Object.keys(globalUser).length === 0) {
+		window.location.href = "/FarmeaClipero/auth/login";
+	}
+
+	const currentPath = window.location.pathname;
+	const userRole = globalUser.role || "clipero";
+
+	const accessMap = {
+		admin: ["/FarmeaClipero/admin/","/FarmeaClipero/controller/","/FarmeaClipero/clipero/",],
+		controller: ["/FarmeaClipero/controller/", "/FarmeaClipero/clipero/"],
+		clipero: ["/FarmeaClipero/clipero/"],
+	};
+
+	const allowedPaths = accessMap[userRole] || [];
+
+	if (!allowedPaths.includes(currentPath)) {
+		window.location.href = allowedPaths[0];
+	}
+</script>
+
+<Layout title={title} description={description}>
+	<Header />
+	<slot />
+</Layout>

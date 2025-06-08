@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "homepage": "https://lifo123.site/FarmeaClipero",
+  "name": "template-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "gh-pages -d Build --dotfiles",
+    "predeploy": "pnpm run build"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.2.1",
+    "@lifo123/library": "^1.5.9",
+    "@nanostores/react": "^0.8.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^5.9.0",
+    "crypto-js": "^4.2.0",
+    "nanostores": "^0.11.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^22.8.2",
+    "gh-pages": "^6.1.1",
+    "typescript": "^5.6.3"
+  }
+}

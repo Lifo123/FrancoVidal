@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+
+
+---
+
+<Layout title="Error 404" description='No Page Found'>
+    <div class="fixed f-col f-center h-100 w-100">
+        <div class="f-col g-1 f-center mb-14">
+			<h1 class="title">Page Not Found</h1>
+        	<h2 class="subtitle mb-2">Error 404</h2>
+        	<p class="btn btn-third br-6 pointer" onclick="history.back()">Get Back</p>
+		</div>
+    </div>
+</Layout>
+
+<style is:inline>
+    h1{
+        font-size: calc(var(--lb-multiplier) * 26px) !important;
+        margin-bottom: .6rem !important;
+    }
+    p{
+        padding: 12px 24px;
+        width: max-content;
+        background-color: var(--f-tittle);
+        color: var(--f-bg);
+
+    }
+</style>

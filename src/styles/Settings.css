@@ -1,0 +1,31 @@
+.setting-app {
+    height: 100dvh;
+    width: 100dvw;
+    top: 0%;
+    left: 0%;
+    background-color: rgb(var(--lb-bg));
+    transition: opacity .15s ease;
+}
+
+.setting-app.visible {
+    opacity: 1;
+}
+
+.setting-app.delete {
+    opacity: 0;
+}
+
+.setting-cont {
+    width: 70%;
+    max-width: 840px;
+    gap: .36rem;
+    transition: margin-top .15s ease;
+}
+
+.setting-cont.visible {
+    margin-top: 25px;
+}
+
+.setting-cont.delete {
+    margin-top: 50px;
+}

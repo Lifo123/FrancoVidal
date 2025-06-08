@@ -1,0 +1,73 @@
+---
+import AuthBTN from "@Apps/Auth/AuthBTN";
+
+interface Props {
+    auth: string;
+}
+
+const { auth } = Astro.props;
+---
+
+<script is:inline>
+    const globalUser = JSON.parse(localStorage.getItem("FV-User") || "{}");
+    if (globalUser && Object.keys(globalUser).length > 0) {
+        const referrer = document.referrer;
+        const isSamePage = referrer.includes(window.location.pathname);
+
+        if (referrer && !isSamePage) {
+            window.location.href = referrer;
+        } else {
+            window.location.href = `/FarmeaClipero/${globalUser.role || "clipero"}`;
+        }
+    }
+</script>
+
+<main class={`container-${auth} f-col p-4 br-10 fixed`} data-type={auth}>
+    <h3 class="text-center">{auth}</h3>
+    <div class="f-col f-justify-center o-scroll">
+        <span class="fs-2 mt-3 mb-1">Username</span>
+        <input type="text" data-input-type="user" name="fv_username" />
+        <span class="fs-2 mt-3 mb-1">Contraseña</span>
+        <input type="password" data-input-type="pass" />
+        {
+            auth !== "Login" ? (
+                <>
+                    <span class="fs-2 mt-3 mb-1">Repite la contraseña</span>
+                    <input type="password" data-input-type="pass2" />
+                    <span class="fs-2 mt-3 mb-1">Nº de telefono</span>
+                    <input
+                        type="number"
+                        oninput="if(this.value.length > 9) this.value = this.value.slice(0, 9)"
+                        data-input-type="phone"
+                        name="phone"
+                    />
+                </>
+            ) : null
+        }
+    </div>
+    <AuthBTN type={auth} client:only="react" />
+    <p class="text-small mt-2 m-0">
+        {auth === "Login" ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}
+        <a
+            href={`/FarmeaClipero/auth/${auth === "Login" ? "register" : "login"}`}
+            class="link text-info"
+        >
+            {auth === "Login" ? "Registrarme" : "Ingresar"}
+        </a>
+    </p>
+</main>
+
+<style>
+    .container-Login,
+    .container-Register {
+        background-color: rgb(var(--lb-bg-2-hover));
+        height: max-content;
+        max-height: 520px;
+        width: 360px;
+        max-width: 560px;
+        min-width: 340px;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
