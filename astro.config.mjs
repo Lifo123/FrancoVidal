@@ -6,8 +6,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lifo123.site/FarmeaClipero/',
-  base: '/FarmeaClipero/',
+  site: 'https://lifo123.github.io/FrancoVidal-Pagos/',
+  base: '/FrancoVidal/',
   integrations: [react(), mdx(), sitemap()],
   outDir: 'Build',
   build: {

@@ -13,16 +13,16 @@ const { title, description } = Astro.props;
 	const globalUser = JSON.parse(localStorage.getItem("FV-User") || "{}");
 
 	if (!globalUser || Object.keys(globalUser).length === 0) {
-		window.location.href = "/FarmeaClipero/auth/login";
+		window.location.href = "/FrancoVidal/auth/login";
 	}
 
 	const currentPath = window.location.pathname;
 	const userRole = globalUser.role || "clipero";
 
 	const accessMap = {
-		admin: ["/FarmeaClipero/admin/","/FarmeaClipero/controller/","/FarmeaClipero/clipero/",],
-		controller: ["/FarmeaClipero/controller/", "/FarmeaClipero/clipero/"],
-		clipero: ["/FarmeaClipero/clipero/"],
+		admin: ["/FrancoVidal/admin/","/FrancoVidal/controller/","/FrancoVidal/clipero/",],
+		controller: ["/FrancoVidal/controller/", "/FrancoVidal/clipero/"],
+		clipero: ["/FrancoVidal/clipero/"],
 	};
 
 	const allowedPaths = accessMap[userRole] || [];
