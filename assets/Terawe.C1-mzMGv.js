@@ -1,0 +1,1 @@
+import{j as r}from"./jsx-runtime.D3GSbgeI.js";import{u as e}from"./index.Cpwd-H5L.js";import{$ as o}from"./User.store.CijD3W1C.js";import"./index.yBjzXJbu.js";import"./index.DuP_GS2H.js";function p(){return e(o),r.jsx("div",{children:"Terawe"})}export{p as default};

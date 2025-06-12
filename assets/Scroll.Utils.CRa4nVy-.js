@@ -1,0 +1,1 @@
+const n=(e,o)=>{const t=o instanceof HTMLElement?o:document.documentElement,d=window.innerWidth-t.clientWidth;document.documentElement.style.setProperty("--padding-cut",`${d}px`),e?(t.style.overflow="",t.style.paddingRight=""):(t.style.overflow="hidden",t.style.paddingRight=`${d}px`)},l={set:n,show:e=>n(!0,e),hide:e=>n(!1,e)};export{l as S};
