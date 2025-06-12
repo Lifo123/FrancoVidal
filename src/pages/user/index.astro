@@ -1,0 +1,30 @@
+---
+//Logout and login no work
+import Private from "@Layouts/Private.astro";
+import UserDashboard from "@Apps/UserDashboard";
+import EnviarURL from "@Apps/EnviarURL";
+---
+
+<Private title="User" description="Clipero">
+    <main class="f-col mx-auto">
+        <div class="msg-info px-4 py-3 br-6 f-row f-justify-between g-3 my-7">
+            <div class="f-col g-1">
+                <h2 class="fs-custom-15">Important</h2>
+                <p class="text-sm m-0">
+                    Recomendamos subir la <span class="text-info strong"
+                        >URL</span
+                    > inmediatamente después de postear el video.
+                </p>
+            </div>
+        </div>
+        <section class="f-col g-2 mb-2">
+            <span class="fs-2">Subir URL del video</span>
+            <div class="f-row f-justify-between f-align-center f-grow g-6">
+                <EnviarURL client:only="react" />
+            </div>
+        </section>
+        <section>
+            <UserDashboard client:only="react" />
+        </section>
+    </main>
+</Private>

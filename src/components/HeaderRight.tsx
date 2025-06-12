@@ -1,20 +1,21 @@
-import { Icon } from "@lifo123/library";
+import { Dropdown, Icon } from "@lifo123/library";
 import { useStore } from "@nanostores/react";
-import { $setting, ManageSetting } from "@Stores/Setting.store";
-import Setting from "@Apps/Settings/Setting";
+import { $user, User } from "@Stores/User.store";
 
 interface HeaderRightProps {
 
 }
 
 export default function HeaderRight() {
-    const SETTING = useStore($setting)
+    const USER = useStore($user)
 
     return (
         <>
-            <span className="fs-custom-15">{JSON.parse(localStorage.getItem('FV-User') || "{}").user}</span>
-            <Icon icon="setting" size={30} onClick={() => ManageSetting.open()} stroke="1" className="icon-btn br-6"/>
-            {SETTING.isOpen && <Setting />}
+            <Dropdown custom={<img src={USER.avatar_url_100} className="icon-btn br-50" height={44} width={44} />}
+                items={[[
+                    { text: "Logout", onClick: User.logOut }
+                ]]}
+            />
         </>
     )
 }

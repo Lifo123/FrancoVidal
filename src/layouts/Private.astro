@@ -10,25 +10,72 @@ const { title, description } = Astro.props;
 ---
 
 <script is:inline>
-	const globalUser = JSON.parse(localStorage.getItem("FV-User") || "{}");
+	const LocalUser = "FV-User";
+	const baseURL = "/FrancoVidal";
 
-	if (!globalUser || Object.keys(globalUser).length === 0) {
-		window.location.href = "/FrancoVidal/auth/login";
-	}
+	const params = new URLSearchParams(window.location.search);
+	const uid = params.get("uid");
+	const username = params.get("username");
+	const role = params.get("role");
+	const expires_in = Number(params.get("expires_in"));
+	const refresh_expires_in = Number(params.get("refresh_expires_in"));
+	const avatar_url = params.get("avatar_url");
+	const avatar_url_100 = params.get("avatar_url_100");
+	const display_name = params.get("display_name");
+	const link = params.get("link");
 
-	const currentPath = window.location.pathname;
-	const userRole = globalUser.role || "clipero";
+	if (uid && username && role && expires_in && refresh_expires_in) {
+		const userData = {
+			uid,
+			username,
+			role,
+			expires_in,
+			refresh_expires_in,
+			avatar_url,
+			avatar_url_100,
+			display_name,
+			link
+		};
+		localStorage.setItem(LocalUser, JSON.stringify(userData));
+		const cleanURL = window.location.origin + window.location.pathname;
+		window.history.replaceState({}, document.title, cleanURL);
+	} else {
+		const raw = localStorage.getItem(LocalUser);
 
-	const accessMap = {
-		admin: ["/FrancoVidal/admin/","/FrancoVidal/controller/","/FrancoVidal/clipero/",],
-		controller: ["/FrancoVidal/controller/", "/FrancoVidal/clipero/"],
-		clipero: ["/FrancoVidal/clipero/"],
-	};
+		const globalUser = JSON.parse(raw || `{}`);
 
-	const allowedPaths = accessMap[userRole] || [];
+		if (!globalUser || !globalUser.uid) {
+			//Add all params
+			console.log("No hay datos válidos en el localStorage");
+			localStorage.removeItem(LocalUser);
+			window.location.href = `${baseURL}/auth/login`;
+		}
 
-	if (!allowedPaths.includes(currentPath)) {
-		window.location.href = allowedPaths[0];
+		const validRoles = ["admin", "moderator", "user"];
+		const role = validRoles.includes(globalUser.role)
+			? globalUser.role
+			: "user";
+
+		const accessMap = {
+			admin: [
+				`${baseURL}/admin/`,
+				`${baseURL}/moderator/`,
+				`${baseURL}/user/`,
+			],
+			moderator: [`${baseURL}/moderator/`, `${baseURL}/user/`],
+			user: [`${baseURL}/user/`],
+		};
+
+		const currentPath = window.location.pathname;
+		const allowedPaths = accessMap[role];
+
+		const isAllowed = allowedPaths.some((path) =>
+			currentPath.startsWith(path),
+		);
+
+		if (!isAllowed) {
+			window.location.href = allowedPaths[0] + "?state=unauthorized";
+		}
 	}
 </script>
 
@@ -36,3 +83,16 @@ const { title, description } = Astro.props;
 	<Header />
 	<slot />
 </Layout>
+
+<script>
+	const USER = localStorage.getItem("FV-User");
+	const parsedUser = USER ? JSON.parse(USER) : null;
+
+	const slotUser = document.querySelectorAll("[data-user='true']");
+
+	if (slotUser && parsedUser) {
+		slotUser.forEach((el) => {
+			el.textContent = `${parsedUser.username || "Unknown"}`;
+		});
+	}
+</script>

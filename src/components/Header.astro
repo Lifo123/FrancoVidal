@@ -2,11 +2,13 @@
 import HeaderRight from "./HeaderRight.tsx";
 ---
 
-<header
-    class="f-row f-justify-between f-align-center px-3 w-70 br-8 sticky mx-auto"
->
-    <span class="d-flex ml-1 strong"> Franco Vidal </span>
+<header class="f-row f-justify-between f-align-center px-4 mx-auto w-100">
+    <a class="f-row f-align-center g-2 pointer px-2" href="/FrancoVidal/">
+        <span>Logo</span>
+        <span class="head-h1 text-center fs-3 fw-500">Franco Vidal</span>
+    </a>
     <ul class="f-row f-align-center g-2">
+        <span class="fs-2" data-user="true"></span>
         <HeaderRight client:only="react" />
     </ul>
 </header>
@@ -14,9 +16,10 @@ import HeaderRight from "./HeaderRight.tsx";
 <style>
     header {
         height: 50px;
-        min-width: 330px;
-        max-width: 840px;
-        top: 25px;
-        border: 1px solid rgb(var(--border-color));
+        background-color: var(--vscode-panel-background);
+        color: var(--vscode-description-foreground);
+    }
+    .head-h1:hover {
+        color: var(--vscode-foreground);
     }
 </style>

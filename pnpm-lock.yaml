@@ -24,8 +24,8 @@ importers:
         specifier: ^3.2.1
         version: 3.2.1
       '@lifo123/library':
-        specifier: ^1.5.9
-        version: 1.5.9(@nanostores/react@0.8.0(nanostores@0.11.3)(react@18.3.1))(@types/node@22.8.2)(@types/react@18.3.11)(nanostores@0.11.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yaml@2.5.1)
+        specifier: ^1.6.0
+        version: 1.6.0(@nanostores/react@0.8.0(nanostores@0.11.3)(react@18.3.1))(@types/node@22.8.2)(@types/react@18.3.11)(nanostores@0.11.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yaml@2.5.1)
       '@nanostores/react':
         specifier: ^0.8.0
         version: 0.8.0(nanostores@0.11.3)(react@18.3.1)
@@ -41,6 +41,9 @@ importers:
       crypto-js:
         specifier: ^4.2.0
         version: 4.2.0
+      dotenv:
+        specifier: ^16.5.0
+        version: 16.5.0
       nanostores:
         specifier: ^0.11.3
         version: 0.11.3
@@ -607,8 +610,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@lifo123/library@1.5.9':
-    resolution: {integrity: sha512-YbIMnzhMj21nS2jyzfYIAEG7FIPCOd8SM8UYMPWkK3UH5hTmDVGeNAVslpeRkZbahj8Wl/GK7kU32N5cpguHsg==, tarball: https://registry.npmjs.org/@lifo123/library/-/library-1.5.9.tgz}
+  '@lifo123/library@1.6.0':
+    resolution: {integrity: sha512-aVnl2iXLX1vEGlBaDIbW8Xd+IStO/ZtK7W9HpstJVGQ4ybznhXftXZ9ktAsXs8VSOBCr36FVAQQd3RxgLrFLKQ==, tarball: https://registry.npmjs.org/@lifo123/library/-/library-1.6.0.tgz}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@nanostores/react': ^0.8.0
@@ -641,8 +644,8 @@ packages:
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==, tarball: https://registry.npmjs.org/@oslojs/encoding/-/encoding-1.1.0.tgz}
 
-  '@rolldown/pluginutils@1.0.0-beta.9':
-    resolution: {integrity: sha512-e9MeMtVWo186sgvFFJOPGy7/d2j2mZhLJIdVW0C/xDluuOvymEATqz6zKsP0ZmXGzQtqlyjz5sC1sYQUoJG98w==, tarball: https://registry.npmjs.org/@rolldown/pluginutils/-/pluginutils-1.0.0-beta.9.tgz}
+  '@rolldown/pluginutils@1.0.0-beta.11':
+    resolution: {integrity: sha512-L/gAA/hyCSuzTF1ftlzUSI/IKr2POHsv1Dd78GfqkR83KMNuswWD61JxGV2L7nRwBBBSDr6R1gCkdTmoN7W4ag==, tarball: https://registry.npmjs.org/@rolldown/pluginutils/-/pluginutils-1.0.0-beta.11.tgz}
 
   '@rollup/pluginutils@5.1.4':
     resolution: {integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ==, tarball: https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.1.4.tgz}
@@ -863,11 +866,11 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0
 
-  '@vitejs/plugin-react@4.5.1':
-    resolution: {integrity: sha512-uPZBqSI0YD4lpkIru6M35sIfylLGTyhGHvDZbNLuMA73lMlwJKz5xweH7FajfcCAc2HnINciejA9qTz0dr0M7A==, tarball: https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-4.5.1.tgz}
+  '@vitejs/plugin-react@4.5.2':
+    resolution: {integrity: sha512-QNVT3/Lxx99nMQWJWF7K4N6apUEuT0KlZA3mx/mVaoGj3smm/8rc8ezz15J1pcbcjDK0V15rpHetVfya08r76Q==, tarball: https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-4.5.2.tgz}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      vite: ^4.2.0 || ^5.0.0 || ^6.0.0
+      vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0-beta.0
 
   '@volar/kit@2.4.6':
     resolution: {integrity: sha512-OaMtpmLns6IYD1nOSd0NdG/F5KzJ7Jr4B7TLeb4byPzu+ExuuRVeO56Dn1C7Frnw6bGudUQd90cpQAmxdB+RlQ==}
@@ -1188,6 +1191,10 @@ packages:
 
   dlv@1.1.3:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==, tarball: https://registry.npmjs.org/dlv/-/dlv-1.1.3.tgz}
+
+  dotenv@16.5.0:
+    resolution: {integrity: sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==, tarball: https://registry.npmjs.org/dotenv/-/dotenv-16.5.0.tgz}
+    engines: {node: '>=12'}
 
   dset@3.1.4:
     resolution: {integrity: sha512-2QF/g9/zTaPDc3BjNcVTGoBbXBgYfMTTceLaYcFJ/W9kggFUkhxD/hMEeuLKbugyef9SqAx8cpgwlIP/jinUTA==, tarball: https://registry.npmjs.org/dset/-/dset-3.1.4.tgz}
@@ -2683,7 +2690,7 @@ snapshots:
     dependencies:
       '@types/react': 18.3.11
       '@types/react-dom': 19.1.6(@types/react@18.3.11)
-      '@vitejs/plugin-react': 4.5.1(vite@6.3.5(@types/node@22.8.2)(yaml@2.5.1))
+      '@vitejs/plugin-react': 4.5.2(vite@6.3.5(@types/node@22.8.2)(yaml@2.5.1))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       ultrahtml: 1.6.0
@@ -3166,7 +3173,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@lifo123/library@1.5.9(@nanostores/react@0.8.0(nanostores@0.11.3)(react@18.3.1))(@types/node@22.8.2)(@types/react@18.3.11)(nanostores@0.11.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yaml@2.5.1)':
+  '@lifo123/library@1.6.0(@nanostores/react@0.8.0(nanostores@0.11.3)(react@18.3.1))(@types/node@22.8.2)(@types/react@18.3.11)(nanostores@0.11.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yaml@2.5.1)':
     dependencies:
       '@astrojs/react': 4.3.0(@types/node@22.8.2)(@types/react-dom@19.1.6(@types/react@18.3.11))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yaml@2.5.1)
       '@nanostores/react': 0.8.0(nanostores@0.11.3)(react@18.3.1)
@@ -3238,7 +3245,7 @@ snapshots:
 
   '@oslojs/encoding@1.1.0': {}
 
-  '@rolldown/pluginutils@1.0.0-beta.9': {}
+  '@rolldown/pluginutils@1.0.0-beta.11': {}
 
   '@rollup/pluginutils@5.1.4(rollup@4.41.1)':
     dependencies:
@@ -3446,12 +3453,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-react@4.5.1(vite@6.3.5(@types/node@22.8.2)(yaml@2.5.1))':
+  '@vitejs/plugin-react@4.5.2(vite@6.3.5(@types/node@22.8.2)(yaml@2.5.1))':
     dependencies:
       '@babel/core': 7.27.4
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.27.4)
       '@babel/plugin-transform-react-jsx-source': 7.27.1(@babel/core@7.27.4)
-      '@rolldown/pluginutils': 1.0.0-beta.9
+      '@rolldown/pluginutils': 1.0.0-beta.11
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
       vite: 6.3.5(@types/node@22.8.2)(yaml@2.5.1)
@@ -3848,6 +3855,8 @@ snapshots:
   diff@5.2.0: {}
 
   dlv@1.1.3: {}
+
+  dotenv@16.5.0: {}
 
   dset@3.1.4: {}
 
