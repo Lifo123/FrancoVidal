@@ -9,7 +9,7 @@
         const isSamePage = referrer.includes(window.location.pathname);
 
         if (referrer && !isSamePage) {
-            window.location.href = referrer;
+            window.location.href = referrer; 
         } else {
             window.location.href = `${baseURL}/${globalUser.role || "user"}`;
         }
