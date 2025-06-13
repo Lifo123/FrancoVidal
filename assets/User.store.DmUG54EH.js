@@ -1,0 +1,1 @@
+import{d as s}from"./ToastAssets.rf4H3wTp.js";const o="FV-User",e=s();typeof window<"u"&&e.subscribe(r=>{localStorage.setItem(o,JSON.stringify(e.get()))});const t=()=>{localStorage.removeItem(o),window.location.reload()},n={logOut:t};export{e as $,n as U};
